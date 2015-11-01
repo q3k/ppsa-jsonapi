@@ -16,5 +16,5 @@ RUN set -e -x ;\
 	virtualenv venv ;\
 	venv/bin/pip install -r requirements.txt
 
-CMD ["venv/bin/uwsgi", "--http", "8080", "--module", "api", "--callable", "app"]
+CMD ["venv/bin/uwsgi", "--http", "0.0.0.0:8080", "--module", "api", "--callable", "app"]
 EXPOSE 8080
