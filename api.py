@@ -29,7 +29,7 @@ def api_v1_parcel(identifier):
     if data['events']:
         data['last'] = data['events'][-1]
 
-    return json.dumps({'status': 'ok', 'data' : data})
+    return flask.jsonify(status='ok', data=data)
 
 
 if __name__ == '__main__':
