@@ -1,3 +1,6 @@
+# Copyright (c) 2015 Sergiusz 'q3k' Bazanski
+# Licensed under the WTFPL, see COPYING
+
 import json
 
 import flask
