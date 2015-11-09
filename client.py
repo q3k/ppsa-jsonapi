@@ -37,9 +37,8 @@ class Parcel(object):
     @classmethod
     def from_soap_object(cls, o):
         self = cls()
-        for (_, zdarzenie) in o.danePrzesylki.zdarzenia:
+        for zdarzenie in o.danePrzesylki.zdarzenia.zdarzenie:
             # thank mr soap
-            zdarzenie = zdarzenie[0]
             e = ParcelEvent.from_soap_object(zdarzenie)
             self.events.append(e)
         return self
@@ -71,6 +70,7 @@ class Client(object):
         if self.client is None:
             raise Exception("lol not connected")
         t = self.client.service.sprawdzPrzesylke(identifier)
+        print t
         p = Parcel.from_soap_object(t)
         return p
 
